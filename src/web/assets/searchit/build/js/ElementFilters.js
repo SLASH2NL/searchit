@@ -2,7 +2,7 @@ var ElementFilters = (function() {
 	"use strict";
 
 	var defaults = {
-		debug: false,
+        debug: false,
 		attributes: {
 			id: 'data-element-filters-id',
 			filters: 'data-element-filters',
@@ -41,7 +41,7 @@ var ElementFilters = (function() {
 
 			// DOM Elements
 			dom.toolbar = elementIndex.$toolbar[0];
-			dom.search = elementIndex.$search[0].closest('.search');
+			dom.search = elementIndex.$search[0].parentNode.querySelector('.search');
 
 			// Listeners
 			dom.toolbar.addEventListener('change', filterHandler, false);
@@ -172,7 +172,7 @@ var ElementFilters = (function() {
 
 				var filters  = getElementFilters(elementIndex.elementType, elementIndex.sourceKey);
 				if(filters) {
-					dom.search.parentNode.insertBefore(filters, dom.search);
+					dom.search.parentNode.parentNode.insertBefore(filters, dom.search.parentNode);
 				}
 			}
 		}
@@ -183,7 +183,7 @@ var ElementFilters = (function() {
 
 				var filters = getElementFilters(dom.preview.getAttribute('data-type'), dom.preview.getAttribute('data-source'));
 				if(filters) {
-					dom.search.parentNode.insertBefore(filters, dom.search);
+					dom.search.parentNode.parentNode.insertBefore(filters, dom.search.parentNode);
 				}
 			}
 		}
