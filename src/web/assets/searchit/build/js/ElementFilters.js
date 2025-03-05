@@ -2,7 +2,7 @@ var ElementFilters = (function() {
 	"use strict";
 
 	var defaults = {
-        debug: false,
+		debug: false,
 		attributes: {
 			id: 'data-element-filters-id',
 			filters: 'data-element-filters',
